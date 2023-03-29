@@ -35,15 +35,19 @@ public class PasswordVerification {
 //             *  [\w\W]{8,}匹配长度超过8位的任意字符。
 //             *  $ 匹配字符串的结尾
 //             */
-//            String patternString =
-//                    "^(?![\\s\\S]*([\\w\\W])\\1{2})" +
-//                            "((?=.*[A-Z])(?=.*[a-z])(?=.*\\d)|(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])|(?=.*[A-Z])" +
-//                            "(?=.*\\d)(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\\d)(?=.*[^A-Za-z0-9]))[\\w\\W]{8,}$";
+////            String patternString =
+////                    "^(?![\\s\\S]*([\\w\\W])\\1{2})" +
+////                            "((?=.*[A-Z])(?=.*[a-z])(?=.*\\d)|(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])|(?=.*[A-Z])" +
+////                            "(?=.*\\d)(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\\d)(?=.*[^A-Za-z0-9]))[\\w\\W]{8,}$";
+//            String patternString = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)" +
+//                    "(?=.*[~!@#$%^&*()_+`\\-={}\\[\\]\\\\|;:'\",<.>/?])" +
+//                    "[a-zA-Z\\d~!@#$%^&*()_+`\\-={}\\[\\]\\\\|;:'\",<.>/?]{8,}" +
+//                    "(?<!([a-zA-Z\\d~!@#$%^&*()_+`\\-={}\\[\\]\\\\|;:'\",<.>/?]{1,}).*?\\1)$";
 //            if (Pattern.compile(patternString).matcher(passWord).matches()) {
 //                System.out.println("OK");
 //            } else System.out.println("NG");
 //        }
-        StringBuffer sb = new StringBuffer();
+//
         while (scanner.hasNext()) {
             String input = scanner.nextLine();
             //设置四种类型数据初始为空即false，有数据了就更改为true
@@ -51,7 +55,7 @@ public class PasswordVerification {
             char[] chars = input.toCharArray();
             // 第一个条件
             if (chars.length < 9) {
-                sb.append("NG").append("\n");
+                System.out.println("NG");
                 continue;
             }
             // 第二个条件
@@ -73,7 +77,7 @@ public class PasswordVerification {
                 }
             }
             // 第三个条件
-            boolean sign = true;        //不存在两个大于2的子串相同，即！（i=i+3,i+1=i+4,i+2=i+5）
+            boolean sign = true;        //不存在两个大于2的子串相同，即！（i=i+3,i+1=i+4,i+2=i+5） 021@1bc9@bc1 021Abc9000
             for (int i = 0; i < chars.length - 5; i++) {
                 for (int j = i + 3; j < chars.length - 2; j++) {
                     if (chars[i] == chars[j] && chars[i + 1] == chars[j + 1] && chars[i + 2] == chars[j + 2]) {
@@ -82,11 +86,11 @@ public class PasswordVerification {
                 }
             }
             if (count >= 3 && sign) {
-                sb.append("OK").append("\n");
+                System.out.println("OK");
             } else {
-                sb.append("NG").append("\n");
+                System.out.println("NG");
             }
         }
-        System.out.println(sb.toString());
+
     }
 }
