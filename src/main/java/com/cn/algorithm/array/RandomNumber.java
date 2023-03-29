@@ -1,7 +1,10 @@
 package com.cn.algorithm.array;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * @author Mr.Liu
@@ -25,7 +28,7 @@ public class RandomNumber {
 //            for (int i = 0; i < num; i++) {
 //                set.add(scanner.nextInt());
 //            }
-//            Stream<Object> random = Arrays.stream(set.toArray()).sorted();
+//            Stream<Integer> random = set.stream().sorted();
 //            random.forEach(System.out::println);
             int[] ints = new int[num];
             for (int i = 0; i < num; i++) {
