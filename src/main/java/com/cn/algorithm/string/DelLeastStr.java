@@ -30,7 +30,12 @@ public class DelLeastStr {
         }
 
     }
-
+    /**
+     * @author Mr.Liu
+     * @date 2023/3/30 10:09
+     * @param str 终端传的字符串
+     * @return 删除最少的字符生成的新的字符串
+     */
     public static String del(String str) {
         //使用map记录每个字母出现的次数
         HashMap<Character, Integer> map = new HashMap<>();
