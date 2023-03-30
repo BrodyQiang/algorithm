@@ -29,7 +29,7 @@ public class RandomNumber {
 //                set.add(scanner.nextInt());
 //            }
 //            Stream<Integer> random = set.stream().sorted();
-//            random.forEach(System.out::println);
+//            random.forEach(System.out::println); 
             int[] ints = new int[num];
             for (int i = 0; i < num; i++) {
                 ints[i] = scanner.nextInt();
